@@ -1,0 +1,15 @@
+<configuration>
+  <appSettings>
+    <!-- Add your Google Maps API Key from Google -->
+    <add key="googlemaps.subgurim.net" value="" />
+    <!-- And add your Commercial Key from Subgurim if you have purchased one -->
+    <add key="googlemaps.subgurim.net_Commercial" value="" />
+  </appSettings>
+  <system.web>
+    <pages>
+      <controls>
+        <add tagprefix="gmaps" assembly="GMaps" namespace="Subgurim.Controles" />
+      </controls>
+    </pages>
+  </system.web>
+</configuration>

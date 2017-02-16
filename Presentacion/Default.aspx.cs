@@ -12,6 +12,12 @@ namespace Presentacion
 {
     public partial class Default : System.Web.UI.Page
     {
+
+        /// <summary>
+        /// /manuel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)

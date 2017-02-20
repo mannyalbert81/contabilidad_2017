@@ -331,6 +331,8 @@ namespace Presentacion.Php.Datas {
             
             private global::System.Data.DataColumn columnnombre_usuarios;
             
+            private global::System.Data.DataColumn columncodigo_productos;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public DataTable1DataTable() {
@@ -574,6 +576,14 @@ namespace Presentacion.Php.Datas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn codigo_productosColumn {
+                get {
+                    return this.columncodigo_productos;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -635,7 +645,8 @@ namespace Presentacion.Php.Datas {
                         string observaciones_productos, 
                         double iva_productos, 
                         string nombre_unidades_medida, 
-                        string nombre_usuarios) {
+                        string nombre_usuarios, 
+                        string codigo_productos) {
                 DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id_productos,
@@ -663,7 +674,8 @@ namespace Presentacion.Php.Datas {
                         observaciones_productos,
                         iva_productos,
                         nombre_unidades_medida,
-                        nombre_usuarios};
+                        nombre_usuarios,
+                        codigo_productos};
                 rowDataTable1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataTable1Row);
                 return rowDataTable1Row;
@@ -712,6 +724,7 @@ namespace Presentacion.Php.Datas {
                 this.columniva_productos = base.Columns["iva_productos"];
                 this.columnnombre_unidades_medida = base.Columns["nombre_unidades_medida"];
                 this.columnnombre_usuarios = base.Columns["nombre_usuarios"];
+                this.columncodigo_productos = base.Columns["codigo_productos"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -769,6 +782,8 @@ namespace Presentacion.Php.Datas {
                 base.Columns.Add(this.columnnombre_unidades_medida);
                 this.columnnombre_usuarios = new global::System.Data.DataColumn("nombre_usuarios", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnombre_usuarios);
+                this.columncodigo_productos = new global::System.Data.DataColumn("codigo_productos", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncodigo_productos);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1339,6 +1354,22 @@ namespace Presentacion.Php.Datas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string codigo_productos {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.codigo_productosColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'codigo_productos\' de la tabla \'DataTable1\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.codigo_productosColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Isid_productosNull() {
                 return this.IsNull(this.tableDataTable1.id_productosColumn);
             }
@@ -1647,6 +1678,18 @@ namespace Presentacion.Php.Datas {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Setnombre_usuariosNull() {
                 this[this.tableDataTable1.nombre_usuariosColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Iscodigo_productosNull() {
+                return this.IsNull(this.tableDataTable1.codigo_productosColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setcodigo_productosNull() {
+                this[this.tableDataTable1.codigo_productosColumn] = global::System.Convert.DBNull;
             }
         }
         

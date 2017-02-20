@@ -12,7 +12,7 @@
   <xs:element name="dsReporteProductos" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsReporteProductos" msprop:Generator_UserDSName="dsReporteProductos">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_productos" msprop:Generator_ColumnVarNameInTable="columnid_productos" msprop:Generator_ColumnPropNameInRow="id_productos" msprop:Generator_ColumnPropNameInTable="id_productosColumn" msprop:Generator_UserColumnName="id_productos" type="xs:int" minOccurs="0" />
@@ -41,6 +41,7 @@
               <xs:element name="iva_productos" msprop:Generator_ColumnVarNameInTable="columniva_productos" msprop:Generator_ColumnPropNameInRow="iva_productos" msprop:Generator_ColumnPropNameInTable="iva_productosColumn" msprop:Generator_UserColumnName="iva_productos" type="xs:double" minOccurs="0" />
               <xs:element name="nombre_unidades_medida" msprop:Generator_ColumnVarNameInTable="columnnombre_unidades_medida" msprop:Generator_ColumnPropNameInRow="nombre_unidades_medida" msprop:Generator_ColumnPropNameInTable="nombre_unidades_medidaColumn" msprop:Generator_UserColumnName="nombre_unidades_medida" type="xs:string" minOccurs="0" />
               <xs:element name="nombre_usuarios" msprop:Generator_ColumnVarNameInTable="columnnombre_usuarios" msprop:Generator_ColumnPropNameInRow="nombre_usuarios" msprop:Generator_ColumnPropNameInTable="nombre_usuariosColumn" msprop:Generator_UserColumnName="nombre_usuarios" type="xs:string" minOccurs="0" />
+              <xs:element name="codigo_productos" msprop:Generator_ColumnVarNameInTable="columncodigo_productos" msprop:Generator_ColumnPropNameInRow="codigo_productos" msprop:Generator_ColumnPropNameInTable="codigo_productosColumn" msprop:Generator_UserColumnName="codigo_productos" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

@@ -25,23 +25,14 @@ namespace Presentacion.Php.Contendor
         {
 
 
-            parametros.tipo_comprobantes = Request.QueryString["id_tipo_comprobantes"];
-            parametros.fecha_desde = Request.QueryString["fecha_desde"];
-            parametros.Fecha_hasta = Request.QueryString["fecha_hasta"];
-            parametros.id_entidades = Request.QueryString["id_entidades"];
-            parametros.numero_comprobantes = Request.QueryString["numero_ccomprobantes"];
-            parametros.referencia_doc_comprobantes = Request.QueryString["referencia_doc_ccomprobantes"];
-
-            try
-            {
-                parametros.id_usuarios = Convert.ToInt32(Request.QueryString["id_usuarios"]);
-            }
-            catch (Exception) { parametros.id_usuarios = 0; }
-
             ReportDocument crystalReport = new ReportDocument();
-            var dsComprobantes = new Datas.dsComprobantes();
+            var dsFichaProductos = new Datas.dsFichaProductos();
             DataTable dt_Reporte1 = new DataTable();
 
+            parametros.id_entidades = Request.QueryString["id_entidades"];
+            parametros.id_productos = Request.QueryString["id_productos"];
+
+         
 
             string columnas = " fc_productos.id_productos,"+
                                   "fc_grupo_productos.nombre_grupo_productos,"+ 
@@ -76,79 +67,31 @@ namespace Presentacion.Php.Contendor
 
             String where_to = "";
             //
-            if (parametros.id_usuarios > 0)
-            {
-
-                where_to += " AND usuarios.id_usuarios=" + parametros.id_usuarios + "";
-            }
-
-            if (!String.IsNullOrEmpty(parametros.tipo_comprobantes) && Convert.ToInt32(parametros.tipo_comprobantes) != 0)
-            {
-
-                where_to += " AND tipo_comprobantes.id_tipo_comprobantes='" + parametros.tipo_comprobantes + "'";
-            }
-
-            if (!String.IsNullOrEmpty(parametros.fecha_desde) && !String.IsNullOrEmpty(parametros.Fecha_hasta))
-            {
-
-                where_to += " AND  ccomprobantes.fecha_ccomprobantes BETWEEN '" + parametros.fecha_desde + "' AND '" + parametros.Fecha_hasta + "'";
-            }
-
             if (!String.IsNullOrEmpty(parametros.id_entidades))
             {
 
-                where_to += " AND entidades.id_entidades = " + parametros.id_entidades;
+                where_to += " AND fc_productos.id_entidades = " + parametros.id_entidades;
             }
 
-            if (!String.IsNullOrEmpty(parametros.numero_comprobantes))
+            if (!String.IsNullOrEmpty(parametros.id_productos))
             {
 
-                where_to += " AND ccomprobantes.numero_ccomprobantes='" + parametros.numero_comprobantes + "' ";
+                where_to += " AND fc_productos.id_productos = " + parametros.id_productos;
             }
-
-            if (!String.IsNullOrEmpty(parametros.referencia_doc_comprobantes))
-            {
-
-                where_to += " AND ccomprobantes.referencia_doc_ccomprobantes ='" + parametros.referencia_doc_comprobantes + "'";
-            }
+         
 
             where = where + where_to;
 
             dt_Reporte1 = AccesoLogica.Select(columnas, tablas, where);
 
 
-            dsComprobantes.Tables.Add(dt_Reporte1);
+            dsFichaProductos.Tables.Add(dt_Reporte1);
 
 
-            string cadena = Server.MapPath("~/Php/Reporte/crComprobantes.rpt");
-
+            string cadena = Server.MapPath("~/Php/Reporte/crFichaProductos.rpt");
+            Label1.Text = parametros.id_entidades + parametros.id_productos;
             crystalReport.Load(cadena);
-            crystalReport.SetDataSource(dsComprobantes.Tables[1]);
-
-            //paso de parametros
-
-            //en caso de estar vacios las fechas
-            if (String.IsNullOrEmpty(parametros.fecha_desde) || String.IsNullOrEmpty(parametros.Fecha_hasta))
-            {
-                if (dt_Reporte1.Rows.Count > 0)
-                {
-                    parametros.fecha_desde = dt_Reporte1.Rows[0]["fecha_ccomprobantes"].ToString();
-                    parametros.Fecha_hasta = dt_Reporte1.Rows[dt_Reporte1.Rows.Count - 1]["fecha_ccomprobantes"].ToString();
-                }
-                else
-                {
-                    parametros.fecha_desde = DateTime.Today.ToString("dd-MM-yyyy");
-                    parametros.Fecha_hasta = DateTime.Today.ToString("dd-MM-yyyy");
-                }
-
-            }
-            parametros.total_registros = 0;
-            if (dt_Reporte1.Rows.Count > 0) { parametros.total_registros = dt_Reporte1.Rows.Count; }
-
-            crystalReport.SetParameterValue("total_registros", parametros.total_registros);
-            crystalReport.SetParameterValue("fecha_desde", parametros.fecha_desde);
-            crystalReport.SetParameterValue("fecha_hasta", parametros.Fecha_hasta);
-
+            crystalReport.SetDataSource(dsFichaProductos.Tables[1]);
             CrystalReportViewer1.ReportSource = crystalReport;
 
         }

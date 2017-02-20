@@ -27,23 +27,27 @@ namespace Presentacion.Php.Contendor
         protected void CrystalReportViewer1_Init(object sender, EventArgs e)
         {
 
-
-            parametros.tipo_comprobantes = Request.QueryString["id_tipo_comprobantes"];
-            parametros.fecha_desde = Request.QueryString["fecha_desde"];
-            parametros.Fecha_hasta = Request.QueryString["fecha_hasta"];
+            ReportDocument crystalReport = new ReportDocument();
+            var dsReporteProductos = new Datas.dsReporteProductos();
+            DataTable dt_Reporte1 = new DataTable();
+            
             parametros.id_entidades = Request.QueryString["id_entidades"];
-            parametros.numero_comprobantes = Request.QueryString["numero_ccomprobantes"];
-            parametros.referencia_doc_comprobantes = Request.QueryString["referencia_doc_ccomprobantes"];
+            parametros.codigo_productos = Request.QueryString["codigo_productos"];
+            parametros.nombre_productos = Request.QueryString["nombre_productos"];
+          
 
             try
             {
-                parametros.id_usuarios = Convert.ToInt32(Request.QueryString["id_usuarios"]);
+                parametros.id_grupo_productos = Convert.ToInt32(Request.QueryString["id_grupo_productos"]);
             }
-            catch (Exception) { parametros.id_usuarios = 0; }
+            catch (Exception) { parametros.id_grupo_productos = 0; }
+            try
+            {
+                parametros.id_unidades_medida = Convert.ToInt32(Request.QueryString["id_unidades_medida"]);
+            }
+            catch (Exception) { parametros.id_unidades_medida = 0; }
 
-            ReportDocument crystalReport = new ReportDocument();
-            var dsComprobantes = new Datas.dsComprobantes();
-            DataTable dt_Reporte1 = new DataTable();
+            parametros.iva_productos = Request.QueryString["iva_productos"];
 
 
             string columnas = "fc_productos.id_productos," +
@@ -71,7 +75,8 @@ namespace Presentacion.Php.Contendor
                               "fc_productos.observaciones_productos," +
                               "fc_productos.iva_productos," +
                               "fc_unidades_medida.nombre_unidades_medida," +
-                              "usuarios.nombre_usuarios";
+                              "usuarios.nombre_usuarios,"+
+                              "fc_productos.codigo_productos";
 
             string tablas = "public.fc_productos, public.fc_grupo_productos, public.entidades, public.fc_foto_productos, public.fc_catalogos, public.fc_unidades_medida, public.usuarios";
 
@@ -80,24 +85,6 @@ namespace Presentacion.Php.Contendor
             //para cambiar el where
 
             String where_to = "";
-            //
-            if (parametros.id_usuarios > 0)
-            {
-
-                where_to += " AND usuarios.id_usuarios=" + parametros.id_usuarios + "";
-            }
-
-            if (!String.IsNullOrEmpty(parametros.tipo_comprobantes) && Convert.ToInt32(parametros.tipo_comprobantes) != 0)
-            {
-
-                where_to += " AND tipo_comprobantes.id_tipo_comprobantes='" + parametros.tipo_comprobantes + "'";
-            }
-
-            if (!String.IsNullOrEmpty(parametros.fecha_desde) && !String.IsNullOrEmpty(parametros.Fecha_hasta))
-            {
-
-                where_to += " AND  ccomprobantes.fecha_ccomprobantes BETWEEN '" + parametros.fecha_desde + "' AND '" + parametros.Fecha_hasta + "'";
-            }
 
             if (!String.IsNullOrEmpty(parametros.id_entidades))
             {
@@ -105,55 +92,45 @@ namespace Presentacion.Php.Contendor
                 where_to += " AND entidades.id_entidades = " + parametros.id_entidades;
             }
 
-            if (!String.IsNullOrEmpty(parametros.numero_comprobantes))
+            if (!String.IsNullOrEmpty(parametros.codigo_productos))
             {
 
-                where_to += " AND ccomprobantes.numero_ccomprobantes='" + parametros.numero_comprobantes + "' ";
+                where_to += " AND fc_productos.codigo_productos = " + parametros.codigo_productos;
             }
-
-            if (!String.IsNullOrEmpty(parametros.referencia_doc_comprobantes))
+            if (!String.IsNullOrEmpty(parametros.nombre_productos))
             {
 
-                where_to += " AND ccomprobantes.referencia_doc_ccomprobantes ='" + parametros.referencia_doc_comprobantes + "'";
+                where_to += " AND fc_productos.nombre_productos = " + parametros.nombre_productos;
             }
+            if (parametros.id_grupo_productos > 0)
+            {
+
+                where_to += " AND fc_grupo_productos.id_grupo_productos=" + parametros.id_grupo_productos + "";
+            }
+            if (parametros.id_unidades_medida > 0)
+            {
+
+                where_to += " AND fc_unidades_medida.id_unidades_medida=" + parametros.id_unidades_medida + "";
+            }
+            if (!String.IsNullOrEmpty(parametros.iva_productos))
+            {
+
+                where_to += " AND fc_productos.iva_productos = " + parametros.iva_productos;
+            }
+
 
             where = where + where_to;
 
             dt_Reporte1 = AccesoLogica.Select(columnas, tablas, where);
 
 
-            dsComprobantes.Tables.Add(dt_Reporte1);
+            dsReporteProductos.Tables.Add(dt_Reporte1);
 
 
-            string cadena = Server.MapPath("~/Php/Reporte/crComprobantes.rpt");
+            string cadena = Server.MapPath("~/Php/Reporte/crReporteProductos.rpt");
 
             crystalReport.Load(cadena);
-            crystalReport.SetDataSource(dsComprobantes.Tables[1]);
-
-            //paso de parametros
-
-            //en caso de estar vacios las fechas
-            if (String.IsNullOrEmpty(parametros.fecha_desde) || String.IsNullOrEmpty(parametros.Fecha_hasta))
-            {
-                if (dt_Reporte1.Rows.Count > 0)
-                {
-                    parametros.fecha_desde = dt_Reporte1.Rows[0]["fecha_ccomprobantes"].ToString();
-                    parametros.Fecha_hasta = dt_Reporte1.Rows[dt_Reporte1.Rows.Count - 1]["fecha_ccomprobantes"].ToString();
-                }
-                else
-                {
-                    parametros.fecha_desde = DateTime.Today.ToString("dd-MM-yyyy");
-                    parametros.Fecha_hasta = DateTime.Today.ToString("dd-MM-yyyy");
-                }
-
-            }
-            parametros.total_registros = 0;
-            if (dt_Reporte1.Rows.Count > 0) { parametros.total_registros = dt_Reporte1.Rows.Count; }
-
-            crystalReport.SetParameterValue("total_registros", parametros.total_registros);
-            crystalReport.SetParameterValue("fecha_desde", parametros.fecha_desde);
-            crystalReport.SetParameterValue("fecha_hasta", parametros.Fecha_hasta);
-
+            crystalReport.SetDataSource(dsReporteProductos.Tables[1]);
             CrystalReportViewer1.ReportSource = crystalReport;
 
         }

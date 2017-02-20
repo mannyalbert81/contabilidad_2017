@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="conFichaProductos.aspx.cs" Inherits="Presentacion.Php.Contendor.conFichaProductos" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="conReporteProductos.aspx.cs" Inherits="Presentacion.Php.Contendor.conReporteProductos" %>
 
 <%@ Register assembly="CrystalDecisions.Web, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" namespace="CrystalDecisions.Web" tagprefix="CR" %>
 
@@ -11,12 +11,10 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <CR:CrystalReportViewer ID="CrystalReportViewer1" runat="server" AutoDataBind="true" OnInit="CrystalReportViewer1_Init" ToolPanelView="None" />
     <div>
     
-        <CR:CrystalReportViewer ID="CrystalReportViewer1" runat="server" AutoDataBind="true" ToolPanelView="None" />
-    
     </div>
-        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
     </form>
 </body>
 </html>

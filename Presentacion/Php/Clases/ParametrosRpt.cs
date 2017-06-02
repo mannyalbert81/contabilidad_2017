@@ -31,7 +31,12 @@ namespace Presentacion.Php.Clases
         public string correo_usuarios { get; set; }
         public int id_rol { get; set; }
         public int id_estado { get; set; }
-        
+       public string id_productos { get; set; }
+        public string codigo_productos { get; set; }
+        public string nombre_productos { get; set; }
+        public int id_grupo_productos { get; set; }
+        public int id_unidades_medida { get; set; }
+        public string iva_productos { get; set; }
 
 
 

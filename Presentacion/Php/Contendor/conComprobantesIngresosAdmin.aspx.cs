@@ -98,6 +98,9 @@ namespace Presentacion.Php.Contendor
             crystalReport.Load(cadena);
             crystalReport.SetDataSource(dsComprobantesIngresos.Tables[1]);
             CrystalReportViewer1.ReportSource = crystalReport;
+
+
+
         }
     }
 }

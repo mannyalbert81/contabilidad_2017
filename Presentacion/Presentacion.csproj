@@ -202,12 +202,14 @@
     <Content Include="Php\Contendor\conComprobantesEgresosAdmin.aspx" />
     <Content Include="Php\Contendor\conComprobantesIngresos.aspx" />
     <Content Include="Php\Contendor\conComprobantesIngresosAdmin.aspx" />
+    <Content Include="Php\Contendor\conFichaProductos.aspx" />
     <Content Include="Php\Contendor\conMayorDetallado.aspx" />
     <Content Include="Php\Contendor\conPlanCuentas.aspx" />
     <Content Include="Php\Contendor\conPlanCuentasAdmin.aspx" />
     <Content Include="Php\Contendor\conpruebas.aspx" />
     <Content Include="Php\Contendor\conReporteComprobantes.aspx" />
     <Content Include="Php\Contendor\conReporteComprobantesAdmin.aspx" />
+    <Content Include="Php\Contendor\conReporteProductos.aspx" />
     <Content Include="Php\Contendor\conReporteUsuarios.aspx" />
     <Content Include="Php\Datas\dsBalanceComprobacionDetallado.xsc">
       <DependentUpon>dsBalanceComprobacionDetallado.xsd</DependentUpon>
@@ -278,6 +280,17 @@
     <Content Include="Php\Datas\dsCuentas.xss">
       <DependentUpon>dsCuentas.xsd</DependentUpon>
     </Content>
+    <Content Include="Php\Datas\dsFichaProductos.xsc">
+      <DependentUpon>dsFichaProductos.xsd</DependentUpon>
+    </Content>
+    <None Include="Php\Datas\dsFichaProductos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsFichaProductos.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Php\Datas\dsFichaProductos.xss">
+      <DependentUpon>dsFichaProductos.xsd</DependentUpon>
+    </Content>
     <None Include="Php\Datas\dsMayor.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -310,6 +323,17 @@
     </Content>
     <Content Include="Php\Datas\dsUsuarios.xsc">
       <DependentUpon>dsUsuarios.xsd</DependentUpon>
+    </Content>
+    <Content Include="Php\Datas\dsReporteProductos.xsc">
+      <DependentUpon>dsReporteProductos.xsd</DependentUpon>
+    </Content>
+    <None Include="Php\Datas\dsReporteProductos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsReporteProductos.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Php\Datas\dsReporteProductos.xss">
+      <DependentUpon>dsReporteProductos.xsd</DependentUpon>
     </Content>
     <None Include="Php\Datas\dsUsuarios.xsd">
       <SubType>Designer</SubType>
@@ -423,6 +447,13 @@
     <Compile Include="Php\Contendor\conComprobantesIngresosAdmin.aspx.designer.cs">
       <DependentUpon>conComprobantesIngresosAdmin.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Php\Contendor\conFichaProductos.aspx.cs">
+      <DependentUpon>conFichaProductos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Php\Contendor\conFichaProductos.aspx.designer.cs">
+      <DependentUpon>conFichaProductos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Php\Contendor\conMayorDetallado.aspx.cs">
       <DependentUpon>conMayorDetallado.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -465,6 +496,13 @@
     <Compile Include="Php\Contendor\conReporteComprobantesAdmin.aspx.designer.cs">
       <DependentUpon>conReporteComprobantesAdmin.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Php\Contendor\conReporteProductos.aspx.cs">
+      <DependentUpon>conReporteProductos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Php\Contendor\conReporteProductos.aspx.designer.cs">
+      <DependentUpon>conReporteProductos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Php\Contendor\conReporteUsuarios.aspx.cs">
       <DependentUpon>conReporteUsuarios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -506,6 +544,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsCuentas.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Php\Datas\dsFichaProductos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsFichaProductos.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Php\Datas\dsMayor.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -520,6 +563,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsReporteComprobantes.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Php\Datas\dsReporteProductos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsReporteProductos.xsd</DependentUpon>
     </Compile>
     <Compile Include="Php\Datas\dsUsuarios.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -556,6 +604,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>crBalanceComprobacionDiciembre.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Php\Reporte\crFichaProductos.cs">
+      <DependentUpon>crFichaProductos.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Php\Reporte\crReporteProductos.cs">
+      <DependentUpon>crReporteProductos.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Php\Reporte\crBalanceComprobacionEnero.cs">
       <AutoGen>True</AutoGen>
@@ -738,6 +798,14 @@
     <EmbeddedResource Include="Php\Reporte\crBalanceComprobacionDiciembre.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crBalanceComprobacionDiciembre.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Php\Reporte\crFichaProductos.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crFichaProductos.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Php\Reporte\crReporteProductos.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crReporteProductos.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Php\Reporte\crBalanceComprobacionEnero.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

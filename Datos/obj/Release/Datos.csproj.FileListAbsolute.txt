@@ -40,3 +40,17 @@ C:\Users\Steven\Source\Repos\contabilidad_2017\Datos\bin\Release\zh-CN\Npgsql.re
 C:\Users\Steven\Source\Repos\contabilidad_2017\Datos\obj\Release\Datos.csprojResolveAssemblyReference.cache
 C:\Users\Steven\Source\Repos\contabilidad_2017\Datos\obj\Release\Datos.dll
 C:\Users\Steven\Source\Repos\contabilidad_2017\Datos\obj\Release\Datos.pdb
+C:\Users\mflores\Source\Repos\contabilidad_2017\Datos\bin\Release\Datos.dll
+C:\Users\mflores\Source\Repos\contabilidad_2017\Datos\bin\Release\Datos.pdb
+C:\Users\mflores\Source\Repos\contabilidad_2017\Datos\bin\Release\Mono.Security.dll
+C:\Users\mflores\Source\Repos\contabilidad_2017\Datos\bin\Release\Npgsql.dll
+C:\Users\mflores\Source\Repos\contabilidad_2017\Datos\bin\Release\Npgsql.xml
+C:\Users\mflores\Source\Repos\contabilidad_2017\Datos\bin\Release\de\Npgsql.resources.dll
+C:\Users\mflores\Source\Repos\contabilidad_2017\Datos\bin\Release\es\Npgsql.resources.dll
+C:\Users\mflores\Source\Repos\contabilidad_2017\Datos\bin\Release\fi\Npgsql.resources.dll
+C:\Users\mflores\Source\Repos\contabilidad_2017\Datos\bin\Release\fr\Npgsql.resources.dll
+C:\Users\mflores\Source\Repos\contabilidad_2017\Datos\bin\Release\ja\Npgsql.resources.dll
+C:\Users\mflores\Source\Repos\contabilidad_2017\Datos\bin\Release\zh-CN\Npgsql.resources.dll
+C:\Users\mflores\Source\Repos\contabilidad_2017\Datos\obj\Release\Datos.csprojResolveAssemblyReference.cache
+C:\Users\mflores\Source\Repos\contabilidad_2017\Datos\obj\Release\Datos.dll
+C:\Users\mflores\Source\Repos\contabilidad_2017\Datos\obj\Release\Datos.pdb

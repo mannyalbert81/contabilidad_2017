@@ -29,7 +29,7 @@ namespace Presentacion.Php.Clases
         public string nombre_usuarios { get; set; }
         public string cedula_usuarios { get; set; }
         public string correo_usuarios { get; set; }
-        public int id_rol { get; set; }
+        
         public int id_estado { get; set; }
        public string id_productos { get; set; }
         public string codigo_productos { get; set; }
@@ -39,8 +39,34 @@ namespace Presentacion.Php.Clases
         public string iva_productos { get; set; }
 
 
+        public string operacion { get; set; }
+        public string cuenta { get; set; }
+        public string s { get; set; }
+        public string aa_ddd { get; set; }
+        public string fecha_concede { get; set; }
+        public string fecha_vencimiento { get; set; }
 
 
+        //para rol 3
 
+
+        public int id_abogado { get; set; }
+        public string juicio_referido_titulo_credito { get; set; }
+        public string numero_titulo_credito { get; set; }
+        public string identificacion_clientes { get; set; }
+        public int id_provincias { get; set; }
+        public int id_estados_procesales_juicios { get; set; }
+        
+        public int id_rol { get; set; }
+        public int id_juicios { get; set; }
+
+
+        //para rol 5
+        public int id_secretario { get; set; }
+
+        //para rol 23
+
+        public int id_ciudad { get; set; }
+        
     }
 }

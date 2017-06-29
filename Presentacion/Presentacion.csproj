@@ -203,6 +203,7 @@
     <Content Include="Php\Contendor\conComprobantesIngresos.aspx" />
     <Content Include="Php\Contendor\conComprobantesIngresosAdmin.aspx" />
     <Content Include="Php\Contendor\conFichaProductos.aspx" />
+    <Content Include="Php\Contendor\conHistorialCreditos.aspx" />
     <Content Include="Php\Contendor\conMayorDetallado.aspx" />
     <Content Include="Php\Contendor\conPlanCuentas.aspx" />
     <Content Include="Php\Contendor\conPlanCuentasAdmin.aspx" />
@@ -290,6 +291,17 @@
     </None>
     <Content Include="Php\Datas\dsFichaProductos.xss">
       <DependentUpon>dsFichaProductos.xsd</DependentUpon>
+    </Content>
+    <Content Include="Php\Datas\dsHistorialCreditos.xsc">
+      <DependentUpon>dsHistorialCreditos.xsd</DependentUpon>
+    </Content>
+    <None Include="Php\Datas\dsHistorialCreditos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsHistorialCreditos.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Php\Datas\dsHistorialCreditos.xss">
+      <DependentUpon>dsHistorialCreditos.xsd</DependentUpon>
     </Content>
     <None Include="Php\Datas\dsMayor.xsd">
       <SubType>Designer</SubType>
@@ -454,6 +466,13 @@
     <Compile Include="Php\Contendor\conFichaProductos.aspx.designer.cs">
       <DependentUpon>conFichaProductos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Php\Contendor\conHistorialCreditos.aspx.cs">
+      <DependentUpon>conHistorialCreditos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Php\Contendor\conHistorialCreditos.aspx.designer.cs">
+      <DependentUpon>conHistorialCreditos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Php\Contendor\conMayorDetallado.aspx.cs">
       <DependentUpon>conMayorDetallado.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -549,6 +568,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsFichaProductos.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Php\Datas\dsHistorialCreditos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsHistorialCreditos.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Php\Datas\dsMayor.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -610,6 +634,12 @@
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Php\Reporte\crHistorialCreditos.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crHistorialCreditos.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Php\Reporte\crReporteProductos.cs">
       <DependentUpon>crReporteProductos.rpt</DependentUpon>
@@ -802,6 +832,10 @@
     <EmbeddedResource Include="Php\Reporte\crFichaProductos.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crFichaProductos.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Php\Reporte\crHistorialCreditos.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crHistorialCreditos.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Php\Reporte\crReporteProductos.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

@@ -30,7 +30,11 @@ namespace Presentacion.Php.Contendor
             ReportDocument crystalReport = new ReportDocument();
             var dsReporteProductos = new Datas.dsReporteProductos();
             DataTable dt_Reporte1 = new DataTable();
+
             
+
+
+
             parametros.id_entidades = Request.QueryString["id_entidades"];
             parametros.codigo_productos = Request.QueryString["codigo_productos"];
             parametros.nombre_productos = Request.QueryString["nombre_productos"];
